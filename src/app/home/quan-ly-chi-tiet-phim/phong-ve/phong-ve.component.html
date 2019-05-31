@@ -1,0 +1,30 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2 class="mt-3">Danh Sách Ghế</h2>
+
+      <ng-container *ngFor="let item of danhSachGhe; let STT = index ">
+
+        <app-item-phim [ghe]="item" (eventGhe)="DatGhe($event)"></app-item-phim>
+
+        <br *ngIf="(STT+1) %5 === 0">
+
+      </ng-container>
+
+    </div>
+
+
+
+    <div class="col-sm-6">
+      <h2 class="mt-3">Danh Sách Ghế Đã Đặt</h2>
+      <ng-container *ngFor="let item of danhSachGheDaDat ; let STT = index">
+        <p>Ghế số: {{item.STT}} - Loại ghế: {{item.LoaiGhe}} - Giá vé: {{item.GiaVe}} <span
+            style="color: red ; text-decoration: underline ; cursor: pointer;" (click)="HuyGhe(item,STT)">Huỷ</span></p>
+
+      </ng-container>
+
+
+
+    </div>
+  </div>
+</div>
